@@ -102,8 +102,6 @@ public class Player : MonoBehaviour
             if(Input.GetKeyDown(KeyCode.W))
             {
                 Yasuo.SetTrigger("checkskill2");
-                /* GameObject skill2 = Instantiate(Skill2s, new Vector2(transform.position.x, transform.position.y), Quaternion.identity);
-                 Destroy(skill2, 0.7f);*/
                 GameObject newObjectA = Instantiate(Skill2s, new Vector2(transform.position.x, transform.position.y), Quaternion.identity);
                 float direction = Mathf.Sign(trai_phai);
                 newObjectA.GetComponent<Skillsplayer>().InitializeMovement(direction);
@@ -154,6 +152,40 @@ public class Player : MonoBehaviour
             {
                 Destroy(Key1 );
                 checkpoint1 = 1;
+            }
+        }
+        if (collision.gameObject.CompareTag("health"))
+        {
+            GameObject health1 = GameObject.FindGameObjectWithTag("health");
+            if (currentHealth < maxHealth && health1 != null)
+            {
+                currentHealth += 20;
+                healthBar.SetHealth(currentHealth);
+            }
+            Destroy(health1);
+    }
+        if (collision.gameObject.CompareTag("mana"))
+        {
+            GameObject mana1 = GameObject.FindGameObjectWithTag("mana");
+            if (currentMana < maxMana && mana1 != null)
+            {
+                currentMana += 10;
+                ManaBar.SetMana(currentMana);
+                Destroy(mana1);
+            }
+        }
+        if (collision.gameObject.CompareTag("bullet"))
+        {
+            GameObject bullet1 = GameObject.FindGameObjectWithTag("bullet");
+            Destroy(bullet1);
+            TakeDamage(10);
+            if (currentHealth == 0)
+            {
+                Yasuo.SetTrigger("checkdie");
+            }
+            if (currentMana < maxMana)
+            {
+                TakeMana(10);
             }
         }
     }

@@ -421,6 +421,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 256b164fe058abf4cb9f60f6c4032b97, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SkillMonter: {fileID: 339361177966025377, guid: 1961aeac562bf15409a1535503af9107, type: 3}
   maxHealth: 40
   currentHealth: 0
   healthCrab: {fileID: 852703640464944963}

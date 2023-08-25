@@ -3,7 +3,7 @@ using static UnityEditor.Progress;
 
 public class MovingObjectController : MonoBehaviour
 {
-   /* public GameObject SkillMonter;*/
+    public GameObject SkillMonter;
     private float speed = 4f;
     private float startX;
     private float targetX;
@@ -17,6 +17,7 @@ public class MovingObjectController : MonoBehaviour
     float timer = 0f;
     private CreateMonster2 createMonster2;
     public GameObject items;
+    private Vector3 playerDirection;
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -32,13 +33,12 @@ public class MovingObjectController : MonoBehaviour
 
     private void Update()
     {
-        /*float step = speed * Time.deltaTime;
-
-        // Di chuyển đến vị trí mục tiêu
-        Vector2 newPosition = new Vector2(targetX, transform.position.y);
-        rb.MovePosition(Vector2.MoveTowards(rb.position, newPosition, step));
-        
-*/
+        timer += Time.deltaTime;
+        if (timer >=3)
+        {
+            CreateBullet();
+            timer = 0;
+        }
         Vector2 targetPosition = new Vector2(targetX, transform.position.y);
         Vector2 currentPosition = rb.position;
         // Xác định hướng di chuyển
@@ -50,9 +50,13 @@ public class MovingObjectController : MonoBehaviour
         if (direction > 0)
         {
             transform.localScale = new Vector3(1, 1, 1); // Hướng phải
+            playerDirection = Vector3.right;
         }
         else if (direction < 0)
+        {
             transform.localScale = new Vector3(-1, 1, 1); // Hướng trái
+            playerDirection = Vector3.left;
+        }
 
         if(Mathf.Abs(rb.position.x - targetX) <= 0.1f)
         {
@@ -60,17 +64,15 @@ public class MovingObjectController : MonoBehaviour
             targetX = startX + direction * 2f;
         }
         
+
     }
-    /*private void OnCollisionEnter2D(Collision2D coll)
+    private void CreateBullet()
     {
-        if (coll.gameObject.CompareTag("playerrr"))
-        {
-            player.Checkdie();
-            ani.SetTrigger("Skillcrab");
-            GameObject skill1 = Instantiate(SkillMonter, new Vector2(transform.position.x, transform.position.y), Quaternion.identity);
-            Destroy(skill1, 0.03f);
-        }
-    }*/
+       
+        GameObject newObjectA = Instantiate(SkillMonter, new Vector2(transform.position.x, transform.position.y), Quaternion.identity);
+        newObjectA.GetComponent<Bullets>().InitializeMovement(playerDirection);
+        Destroy(newObjectA, 1f);
+    }
     private void OnTriggerEnter2D(Collider2D coll)
     {
         if (coll.gameObject.CompareTag("skill1"))

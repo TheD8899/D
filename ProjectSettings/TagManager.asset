@@ -15,6 +15,9 @@ TagManager:
   - treasure
   - skill2
   - Checkpoint
+  - health
+  - mana
+  - bullet
   layers:
   - Default
   - TransparentFX
