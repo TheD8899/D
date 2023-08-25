@@ -23,7 +23,7 @@ public class Crabmove : MonoBehaviour
         startPositionX = transform.position.x;
         player11 = FindObjectOfType<Player>();
         createCrab = FindObjectOfType<CreateCrab>();
-        healthCrab = FindObjectOfType<Healthbar>();
+        // healthCrab = FindObjectOfType<Healthbar>();
         ani = GetComponent<Animator>();
         currentHealth = maxHealth;
         healthCrab.SetMaxHealth(currentHealth);
