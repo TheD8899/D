@@ -23,7 +23,7 @@ public class Player : MonoBehaviour
     public HealthPlayer healthBar;
     public Manabar1 ManaBar;
     public int checkpoint1;
-    private int checkpoint2;
+    public int checkpoint2;
     public int checkIsfacingRight;
     // Start is called before the first frame update
     void Start()
@@ -58,7 +58,6 @@ public class Player : MonoBehaviour
         {
             rb.AddForce(Vector2.up * highjump, ForceMode2D.Impulse);
         }
-        
         Skill1();
         Skill2();
         if (isfacingRight)
@@ -126,7 +125,7 @@ public class Player : MonoBehaviour
         if (coll.gameObject.CompareTag("skillcrab"))
         {
             TakeDamage(10);
-            if (currentHealth == 0)
+            if (currentHealth <= 0)
             {
                 Yasuo.SetTrigger("checkdie");
             }
@@ -179,7 +178,7 @@ public class Player : MonoBehaviour
             GameObject bullet1 = GameObject.FindGameObjectWithTag("bullet");
             Destroy(bullet1);
             TakeDamage(10);
-            if (currentHealth == 0)
+            if (currentHealth <= 0)
             {
                 Yasuo.SetTrigger("checkdie");
             }
@@ -188,12 +187,20 @@ public class Player : MonoBehaviour
                 TakeMana(10);
             }
         }
+        if (collision.gameObject.CompareTag("point"))
+        {
+            checkpoint2 = 1;
+        }
     }
     public void Checkdie()
     {
-        if (currentHealth == 0)
+        if (currentHealth <= 0)
         {
             Yasuo.SetTrigger("checkdie");
         }
+    }
+    public Vector3 Getposition()
+    {
+        return transform.position;
     }
 }

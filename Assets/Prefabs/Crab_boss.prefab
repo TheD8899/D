@@ -368,13 +368,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1587841233829556661}
-  - component: {fileID: 8809999214641944539}
+  - component: {fileID: 4169159946036907576}
   - component: {fileID: 1551423754340845921}
   - component: {fileID: 785596293501181148}
   - component: {fileID: 4464532998203708847}
   - component: {fileID: 8603835226983288337}
   m_Layer: 0
-  m_Name: CrabSprite_1
+  m_Name: Crab_boss
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -388,15 +388,15 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8105872980276500048}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.030610561, z: 0}
+  m_LocalPosition: {x: 0.61, y: -3.31, z: 0}
   m_LocalScale: {x: 4, y: 4, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1128500110464352427}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8809999214641944539
+--- !u!114 &4169159946036907576
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -405,14 +405,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 8105872980276500048}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 256b164fe058abf4cb9f60f6c4032b97, type: 3}
+  m_Script: {fileID: 11500000, guid: 80206919e521b1d41885c4e43ee6759f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SkillMonter: {fileID: 1425524210927869441, guid: 14ae13380af78d84293627b0d2b4defc, type: 3}
-  Monter: {fileID: 8105872980276500048}
+  playerTransform: {fileID: 0}
+  moveSpeed: 4
   maxHealth: 40
   currentHealth: 0
   healthCrab: {fileID: 5682583792415764737}
+  skill12: {fileID: 1425524210927869441, guid: 14ae13380af78d84293627b0d2b4defc, type: 3}
+  item1: {fileID: 5957195718963996631, guid: 6d81d743e8f783741999b60fc29042b9, type: 3}
+  item2: {fileID: 3662672335522568478, guid: c66ca1d1924deb74d86eb5a90649c3d7, type: 3}
 --- !u!212 &1551423754340845921
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -497,7 +500,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.0038263053, y: -0.11096305}
+  m_Offset: {x: 0.0038263053, y: -0.10795516}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -508,7 +511,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.26643148, y: 0.1286844}
+  m_Size: {x: 0.26643148, y: 0.122668624}
   m_EdgeRadius: 0
 --- !u!95 &4464532998203708847
 Animator:

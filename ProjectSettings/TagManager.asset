@@ -18,6 +18,9 @@ TagManager:
   - health
   - mana
   - bullet
+  - boss
+  - crab
+  - point
   layers:
   - Default
   - TransparentFX

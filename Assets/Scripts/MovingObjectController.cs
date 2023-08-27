@@ -23,7 +23,7 @@ public class MovingObjectController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         startX = transform.position.x;
         targetX = startX + 2f;
-        healthCrab = FindObjectOfType<Healthbar>();
+     //   healthCrab = FindObjectOfType<Healthbar>();
         createMonster2 = FindObjectOfType<CreateMonster2>();
         ani = GetComponent<Animator>();
         currentHealth = maxHealth;

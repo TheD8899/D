@@ -20,12 +20,11 @@ public class Finispoint : MonoBehaviour
     {
         if (coll.gameObject.CompareTag("playerrr"))
         {
-            /* if (player3.checkpoint1 == 1)
-             {
-
-             }*/
-            Debug.Log("=========");
+            if (player3.checkpoint1 == 1)
+            {
                 SceneController.instance.NextLevel();
+                player3.checkpoint1 = 0;
+            }
             
         }
     }
