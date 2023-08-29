@@ -21,6 +21,7 @@ TagManager:
   - boss
   - crab
   - point
+  - skillboss
   layers:
   - Default
   - TransparentFX
@@ -29,8 +30,8 @@ TagManager:
   - Water
   - UI
   - Checkjump
-  - 
-  - 
+  - monster1
+  - monster2
   - 
   - 
   - 

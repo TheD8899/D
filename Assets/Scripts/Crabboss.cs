@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static UnityEditor.Progress;
+/*using static UnityEditor.Progress;*/
 
 public class Crabboss : MonoBehaviour
 {
@@ -15,6 +15,7 @@ public class Crabboss : MonoBehaviour
     public GameObject skill12;
     public GameObject item1;
     public GameObject item2;
+    private float timer = 1f;
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -53,10 +54,15 @@ public class Crabboss : MonoBehaviour
     {
         if (coll.gameObject.CompareTag("playerrr"))
         {
-            player11.Checkdie();
-            ani.SetTrigger("Skillcrab");
-            GameObject skill1 = Instantiate(skill12, new Vector2(transform.position.x, transform.position.y), Quaternion.identity);
-            Destroy(skill1, 0.03f);
+            timer += Time.deltaTime;
+            if (timer > 0.2f)
+            {
+                player11.Checkdie();
+                ani.SetTrigger("Skillcrab");
+                GameObject skill1 = Instantiate(skill12, new Vector2(transform.position.x, transform.position.y), Quaternion.identity);
+                Destroy(skill1, 0.03f);
+                timer = 0;
+            }
         }
     }
     private void OnTriggerEnter2D(Collider2D coll)
@@ -67,15 +73,26 @@ public class Crabboss : MonoBehaviour
             if (currentHealth == 0)
             {
                 Destroy(gameObject);
-                int randomIndex = Random.Range(0, 2);
-                GameObject selectedObject = randomIndex == 0 ? item1 : item2;
-                Vector3 playerPosition = transform.position;
-                Vector3 randomPosition = playerPosition + new Vector3(Random.Range(-1f, 1f), 0.5f, 0);
-                Instantiate(selectedObject, randomPosition, Quaternion.identity);
+                CreateItems();
+                player11.Healing();
             }
         }
+        if (coll.gameObject.CompareTag("skill2"))
+        {
+            currentHealth = 0;
+            CreateItems();
+            Destroy(gameObject);
+            player11.Healing();
+        }
     }
-
+    private void CreateItems()
+    {
+        int randomIndex = Random.Range(0, 2);
+        GameObject selectedObject = randomIndex == 0 ? item1 : item2;
+        Vector3 playerPosition = transform.position;
+        Vector3 randomPosition = playerPosition + new Vector3(Random.Range(-1f, 1f), 0.5f, 0);
+        Instantiate(selectedObject, randomPosition, Quaternion.identity);
+    }
     void TakeDamage(int damage)
     {
         currentHealth = currentHealth - damage;

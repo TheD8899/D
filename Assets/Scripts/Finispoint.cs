@@ -16,7 +16,11 @@ public class Finispoint : MonoBehaviour
     {
         
     }
-    private void OnCollisionEnter2D(Collision2D coll)
+/*    private void OnCollisionEnter2D(Collision2D coll)
+    {
+        
+    }*/
+    private void OnTriggerEnter2D(Collider2D coll)
     {
         if (coll.gameObject.CompareTag("playerrr"))
         {
@@ -25,8 +29,8 @@ public class Finispoint : MonoBehaviour
                 SceneController.instance.NextLevel();
                 player3.checkpoint1 = 0;
             }
-            
+
         }
     }
-   
+
 }

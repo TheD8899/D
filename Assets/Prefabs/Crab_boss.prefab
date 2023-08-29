@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8876032269092813736}
   - component: {fileID: 1314016733072470277}
   - component: {fileID: 1010512848921780045}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: Border
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -87,7 +87,7 @@ GameObject:
   - component: {fileID: 8025267736217554851}
   - component: {fileID: 8158994427045150893}
   - component: {fileID: 6567186291859958106}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -163,7 +163,7 @@ GameObject:
   - component: {fileID: 7363731550617500602}
   - component: {fileID: 5682583792415764737}
   - component: {fileID: 416653661960143757}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: HealthCrab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -268,7 +268,7 @@ GameObject:
   - component: {fileID: 6354884937462016759}
   - component: {fileID: 4209748550215781350}
   - component: {fileID: 1919084146425801236}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -373,7 +373,7 @@ GameObject:
   - component: {fileID: 785596293501181148}
   - component: {fileID: 4464532998203708847}
   - component: {fileID: 8603835226983288337}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Crab_boss
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -408,7 +408,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80206919e521b1d41885c4e43ee6759f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerTransform: {fileID: 0}
   moveSpeed: 4
   maxHealth: 40
   currentHealth: 0

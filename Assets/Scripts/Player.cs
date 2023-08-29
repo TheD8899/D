@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.PlayerLoop;
-using static UnityEditor.Experimental.GraphView.GraphView;
-
+using UnityEngine.SceneManagement;
+/*using static UnityEditor.Experimental.GraphView.GraphView;*/
 public class Player : MonoBehaviour
 {
     public GameObject Skill1s;
@@ -25,13 +25,14 @@ public class Player : MonoBehaviour
     public int checkpoint1;
     public int checkpoint2;
     public int checkIsfacingRight;
+    private float timer = 3f;
     // Start is called before the first frame update
     void Start()
     {
         Yasuo = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
-        healthBar = FindObjectOfType<HealthPlayer>();
-        ManaBar = FindObjectOfType<Manabar1>();
+        /*healthBar = FindObjectOfType<HealthPlayer>();
+        ManaBar = FindObjectOfType<Manabar1>();*/
         currentHealth = maxHealth;
         healthBar.SetMaxHealth(maxHealth);
         currentMana = 0;
@@ -42,6 +43,8 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        timer += Time.deltaTime;
         trai_phai = Input.GetAxis("Horizontal");
         if (trai_phai == 0)
         {
@@ -68,6 +71,11 @@ public class Player : MonoBehaviour
         {
             checkIsfacingRight = -1;
         }
+        if(currentHealth == 0)
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
+        healthBar.SetHealth(currentHealth);
     }
     private void FixedUpdate()
     {
@@ -96,7 +104,7 @@ public class Player : MonoBehaviour
     }
     void Skill2()
     {
-        if (currentMana == maxMana)
+        if (currentMana >= maxMana)
         {
             if(Input.GetKeyDown(KeyCode.W))
             {
@@ -191,12 +199,42 @@ public class Player : MonoBehaviour
         {
             checkpoint2 = 1;
         }
+        if (collision.gameObject.CompareTag("skillboss"))
+        {
+            if (timer >= 3)
+            {
+                TakeDamage(20);
+                if (currentHealth <= 0)
+                {
+                    Yasuo.SetTrigger("checkdie");
+                }
+                if (currentMana < maxMana)
+                {
+                    TakeMana(15);
+                }
+                timer = 0;
+            }
+        }
     }
     public void Checkdie()
     {
         if (currentHealth <= 0)
         {
             Yasuo.SetTrigger("checkdie");
+        }
+    }
+    public void Healing()
+    {
+        if(currentHealth <= maxHealth) 
+        {
+            if(currentHealth <= maxHealth - 15)
+            {
+                currentHealth += 15;
+            }
+            else
+            {
+                currentHealth = maxHealth;
+            }
         }
     }
     public Vector3 Getposition()

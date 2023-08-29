@@ -3672,7 +3672,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 35, y: -10.968579}
+  m_Offset: {x: 35, y: -11.482295}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -3683,7 +3683,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 92, y: 4.0628414}
+  m_Size: {x: 92, y: 3.03541}
   m_EdgeRadius: 0
 --- !u!1 &578601988
 GameObject:
@@ -4300,7 +4300,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 50
   m_WholeNumbers: 0
-  m_Value: 5
+  m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -8605,7 +8605,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 0
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!1 &1199147825
 GameObject:
@@ -9088,6 +9088,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Monster1: {fileID: 8105872980276500048, guid: 36541f09c1c4a2444a9678fa32ea9bda, type: 3}
   Monster2: {fileID: 896051768713621697, guid: ca675b18e48c4194e89e1ef332195ca3, type: 3}
+  Skill: {fileID: 2048796242127143050, guid: 41746a15709862e4e876ae63a994793b, type: 3}
   maxHealth: 100
   currentHealth: 0
   healthBoss: {fileID: 1290253612}
@@ -9633,7 +9634,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: 9bcc78b0be5fc0448baafb5e158bc597, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

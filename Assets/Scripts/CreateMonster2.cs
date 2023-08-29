@@ -10,7 +10,7 @@ public class CreateMonster2 : MonoBehaviour
     public GameObject Monster3;
     public GameObject Monster4;
     public int count = 0; 
-    float timer = 0f;
+    float timer = 3f;
     public int m = 0;
     void Start()
     {

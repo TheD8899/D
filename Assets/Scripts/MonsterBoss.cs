@@ -18,13 +18,15 @@ public class MonsterBoss : MonoBehaviour
     public GameObject item2;
     private Vector3 playerDirection;
     private Vector3 direction;
+    private Player player;
     private void Start()
-    {
+    { 
+        player = FindObjectOfType<Player>();
         rb = GetComponent<Rigidbody2D>();
         ani = GetComponent<Animator>();
         currentHealth = maxHealth;
         healthCrab.SetMaxHealth(currentHealth);
-        playerDirection = new Vector3(transform.position.x - 5f, transform.position.y,0f);
+        playerDirection = new Vector3(transform.position.x - 10f, transform.position.y,0f);
         direction = new Vector3(-1, 0, 0);
     }
 
@@ -54,13 +56,25 @@ public class MonsterBoss : MonoBehaviour
             if (currentHealth == 0)
             {
                 Destroy(gameObject);
-                int randomIndex = Random.Range(0, 2);
-                GameObject selectedObject = randomIndex == 0 ? item1 : item2;
-                Vector3 playerPosition = transform.position;
-                Vector3 randomPosition = playerPosition + new Vector3(Random.Range(-1f, 1f), 0.5f, 0);
-                Instantiate(selectedObject, randomPosition, Quaternion.identity);
+                CreateItems();
+                player.Healing();
             }
         }
+        if (coll.gameObject.CompareTag("skill2"))
+        {
+            currentHealth = 0;
+            CreateItems();
+            Destroy(gameObject);
+            player.Healing();
+        }
+    }
+    private void CreateItems()
+    {
+        int randomIndex = Random.Range(0, 2);
+        GameObject selectedObject = randomIndex == 0 ? item1 : item2;
+        Vector3 playerPosition = transform.position;
+        Vector3 randomPosition = playerPosition + new Vector3(Random.Range(-1f, 1f), 0.5f, 0);
+        Instantiate(selectedObject, randomPosition, Quaternion.identity);
     }
 
     void TakeDamage(int damage)

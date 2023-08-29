@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6565615048846218338}
   - component: {fileID: 3260506490234186509}
   - component: {fileID: 6388011769159291133}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Border
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -90,7 +90,7 @@ GameObject:
   - component: {fileID: 3852591332168181214}
   - component: {fileID: 5641671670107753776}
   - component: {fileID: 4091414766715060077}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: monster_boss
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -287,7 +287,7 @@ GameObject:
   - component: {fileID: 7273913769348749377}
   - component: {fileID: 906538827559074208}
   - component: {fileID: 3842354079307783230}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -364,7 +364,7 @@ GameObject:
   - component: {fileID: 5449111857984068124}
   - component: {fileID: 8710245919497386988}
   - component: {fileID: 2586427894920605358}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: HealthMonster
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -481,7 +481,7 @@ GameObject:
   - component: {fileID: 305464824136224603}
   - component: {fileID: 7231835640226210262}
   - component: {fileID: 629956018475009450}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}

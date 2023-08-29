@@ -3374,7 +3374,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -6684,6 +6684,7 @@ MonoBehaviour:
   healthBar: {fileID: 1043763623}
   ManaBar: {fileID: 1215552261}
   checkpoint1: 0
+  checkpoint2: 0
   checkIsfacingRight: 0
 --- !u!114 &876161586
 MonoBehaviour:

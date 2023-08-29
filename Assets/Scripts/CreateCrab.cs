@@ -9,7 +9,7 @@ public class CreateCrab : MonoBehaviour
     public GameObject Crab2;
     public GameObject Crab3;
     public GameObject Crab4;
-    float timer = 0f;
+    float timer = 3f;
     public int count1 = 0;
     public int m = 0;
     void Start()
